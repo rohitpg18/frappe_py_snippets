@@ -1,0 +1,178 @@
+<head>
+    <title>Frappe Python Snippets</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .snippet {
+            margin-bottom: 20px;
+        }
+        .snippet-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .snippet-detail {
+            margin-left: 20px;
+        }
+        .snippet-detail code {
+            background-color: #f9f9f9;
+            padding: 4px;
+            display: block;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+
+<body>
+    <h1>Frappe Python Snippets</h1>
+    <div class="snippet">
+        <div class="snippet-title">Frappe WhiteListed Method</div>
+        <div class="snippet-detail">
+            <p><strong>prefix:</strong> @</p>
+            <p><strong>body:</strong></p>
+            <code>
+    @frappe.whitelist()
+            </code>
+            <p><strong>description:</strong> Make Method Whitelisted</p>
+        </div>
+    </div>
+
+    <div class="snippet">
+        <div class="snippet-title">Frappe API</div>
+        <div class="snippet-detail">
+            <p><strong>prefix:</strong> frappe_api_method</p>
+            <p><strong>body:</strong></p>
+            <code>
+    @frappe.whitelist()
+    def ${1:method_name}(${2:args}):
+        ${3:# your API logic here}
+        return ${4:{value}}
+            </code>
+            <p><strong>description:</strong> Create a Frappe API method</p>
+        </div>
+    </div>
+
+    <div class="snippet">
+        <div class="snippet-title">Frappe Fetch Data</div>
+        <div class="snippet-detail">
+            <p><strong>prefix:</strong> frappe_get_all</p>
+            <p><strong>body:</strong></p>
+            <code>
+    data = frappe.get_all('${2:DocType}',
+        filters={${3:'key': 'value'}},
+        fields=[${4:'field1', 'field2'}])
+    return data
+            </code>
+            <p><strong>description:</strong> Fetch data using Frappe ORM</p>
+        </div>
+    </div>
+
+    <div class="snippet">
+        <div class="snippet-title">Frappe DB Set Value</div>
+        <div class="snippet-detail">
+            <p><strong>prefix:</strong> frappe_set_value</p>
+            <p><strong>body:</strong></p>
+            <code>
+    frappe.db.set_value('${2:DocType}', '${3:name}', '${4:field_name}', ${5:new_value})
+            </code>
+            <p><strong>description:</strong> Set a value in Frappe using frappe.db.set_value and commit changes.</p>
+        </div>
+    </div>
+
+    <div class="snippet">
+        <div class="snippet-title">Frappe DB Set Values</div>
+        <div class="snippet-detail">
+            <p><strong>prefix:</strong> frappe_set_values</p>
+            <p><strong>body:</strong></p>
+            <code>
+    frappe.db.set_value('${2:DocType}', '${3:name}', {
+            '${4:field_name_1}': ${5:value_1},
+            '${6:field_name_2}': ${7:value_2},
+            ${8:# add more fields if needed},
+        })
+            </code>
+            <p><strong>description:</strong> Set multiple values in Frappe using frappe.db.set_value and commit changes.</p>
+        </div>
+    </div>
+
+    <div class="snippet">
+        <div class="snippet-title">Frappe Controller Methods Without Class</div>
+        <div class="snippet-detail">
+            <p><strong>prefix:</strong> frappe_controller_methods</p>
+            <p><strong>body:</strong></p>
+            <code>
+    import frappe
+
+    def before_save(doc, method):
+        ${1:# Code to run before saving the document}
+        pass
+
+    def validate(doc, method):
+        ${2:# Code to validate the document before saving}
+        pass
+
+    def before_submit(doc, method):
+        ${3:# Code to run before submitting the document}
+        pass
+
+    def after_insert(doc, method):
+        ${4:# Code to run after the document is inserted}
+        pass
+
+    def on_update(doc, method):
+        ${5:# Code to run when the document is updated}
+        pass
+
+    def on_cancel(doc, method):
+        ${6:# Code to run when the document is cancelled}
+        pass
+
+    def on_trash(doc, method):
+        ${7:# Code to run when the document is trashed}
+        pass
+            </code>
+            <p><strong>description:</strong> Frappe controller methods without class structure.</p>
+        </div>
+    </div>
+
+    <div class="snippet">
+        <div class="snippet-title">Frappe Controller Methods With Class</div>
+        <div class="snippet-detail">
+            <p><strong>prefix:</strong> frappe_class_controller_methods</p>
+            <p><strong>body:</strong></p>
+            <code>
+    def before_save(self):
+        ${1:# Code to run before saving the document}
+        pass
+
+    def validate(self):
+        ${2:# Code to validate the document before saving}
+        pass
+
+    def before_submit(self):
+        ${3:# Code to run before submitting the document}
+        pass
+
+    def after_insert(self):
+        ${4:# Code to run after the document is inserted}
+        pass
+
+    def on_update(self):
+        ${5:# Code to run when the document is updated}
+        pass
+
+    def on_cancel(self):
+        ${6:# Code to run when the document is cancelled}
+        pass
+
+    def on_trash(self):
+        ${7:# Code to run when the document is trashed}
+        pass
+            </code>
+            <p><strong>description:</strong> Frappe controller methods with class structure.</p>
+        </div>
+    </div>
+</body>
